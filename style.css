@@ -1,0 +1,843 @@
+/*  =========================
+    THE MUSEUM OF US — THEME
+    Romantic • Soft • Cute • Classic Museum
+    ========================= */
+
+:root {
+    /* Base Colors */
+    --bg: #FBF7F2;
+    --red: #8B1E2D;
+    --gold: #C9A24D;
+
+    /* Support Colors */
+    --blush: #E6C1C6;
+    --text: #3E3A36;
+
+    /* Extras */
+    --paper: #ffffff;
+    --card: #FDF9F5;
+    --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 16px 34px rgba(0, 0, 0, 0.12);
+    --radius: 14px;
+}
+
+/*  =========================
+    BASE / GLOBAL
+    ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 40px;
+    color: var(--text);
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+    background-color: var(--bg);
+    background-image: url("assets/paper-texture.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    animation: fadeIn 0.7s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Soft spotlight overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 20%,
+        rgba(255,255,255,0.15) 0%,
+        rgba(255,255,255,0.20) 45%,
+        rgba(0,0,0,0.06) 100%
+    );
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*  =========================
+    MAIN
+    ========================= */
+
+.shell {
+    padding: 24px 0;
+}
+
+.topbar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+/* Shell page iframe should not look like a big gray box */
+iframe#museumFrame {
+  width: 100%;
+  height: 100vh;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.music-wrapper {
+    position: fixed;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(900px, 92%);
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
+}
+
+.music-wrapper .btn {
+    pointer-events: auto;
+}
+
+/*  =========================
+    MUSIC
+    ========================= */
+
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.top-actions.right-only {
+  justify-content: flex-end;
+}
+
+/* =========================
+   LAYOUT
+   ========================= */
+
+.container {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  padding: 56px 0;
+}
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+
+h1, h2 {
+  color: var(--red);
+}
+
+h1 {
+  text-align: center;
+  font-size: 48px;
+  margin: 0 0 10px;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 2px;
+  background: var(--gold);
+  margin: 14px auto 0;
+  border-radius: 999px;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.exhibit-subtitle {
+    text-align: center;
+}
+
+.ticketline {
+  text-align: center;
+  font-size: 14px;
+  color: var(--gold);
+  margin: 14px 0 0;
+  letter-spacing: 0.5px;
+}
+
+/* Intro text */
+.intro {
+  text-align: center;
+}
+
+.intro p {
+  margin: 6px 0;
+  opacity: 0.9;
+}
+
+/* =========================
+   MODAL (Hug Popup)
+   ========================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99998;
+}
+
+.modal-content {
+  background: rgba(255,255,255,0.95);
+  padding: 30px 40px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(201,162,77,0.4);
+  border-left: 6px solid var(--gold);
+  text-align: center;
+  box-shadow: var(--shadow-hover);
+  position: relative;
+  z-index: 99999;
+}
+
+.modal-text {
+  font-size: 18px;
+  margin: 0 0 18px;
+  color: var(--red);
+}
+
+/* Blur effect when Exhibit 3 modal is open */
+.page-content.blurred{
+  filter: blur(8px);
+  transform: scale(1.01);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Optional: make the overlay feel softer */
+#beforeReadModal{
+  backdrop-filter: blur(4px);
+}
+
+
+/* =========================
+   PLACARDS (Exhibit Content Pages)
+   ========================= */
+
+.placard {
+  background: var(--paper);
+  padding: 24px;
+  margin: 18px 0;
+  border-radius: var(--radius);
+
+  border: 1px solid rgba(201,162,77,0.45);
+  border-left: 6px solid var(--gold);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.placard p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* =========================
+   GALLERY CARDS
+   ========================= */
+
+.exhibit-link {
+  display: block;
+}
+
+.exhibit-card {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(201,162,77,0.35);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 16px 0;
+  box-shadow: var(--shadow-soft);
+
+  transition: transform 0.18s ease,
+              box-shadow 0.18s ease,
+              background 0.18s ease;
+}
+
+.exhibit-link:hover .exhibit-card {
+  transform: translateY(-4px);
+  background: rgba(230,193,198,0.28);
+  box-shadow: var(--shadow-hover);
+}
+
+.exhibit-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge {
+  min-width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(201,162,77,0.6);
+  color: var(--red);
+  font-weight: 700;
+  background: rgba(253,249,245,0.9);
+}
+
+.chev {
+  margin-left: auto;
+  color: var(--gold);
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+/* =========================
+    INFO CARD
+    ======================== */
+
+.info-card {
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(201,162,77,0.35);
+  border-left: 6px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 18px 0 26px;
+  box-shadow: var(--shadow-soft);
+}
+
+.info-title {
+  margin: 0 0 12px;
+  color: var(--red);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.info-title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 2px;
+  background: var(--gold);
+  margin-top: 8px;
+  border-radius: 999px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  row-gap: 10px;
+  column-gap: 18px;
+  align-items: baseline;
+}
+
+.info-label {
+  color: var(--text);
+  opacity: 0.75;
+  font-size: 14px;
+}
+
+.info-value {
+  color: var(--text);
+  opacity: 0.95;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* =========================
+   EXHIBIT 1 - GALLERY WALL + LABEL CARDS
+   ========================= */
+
+.gallery-wall{
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-areas:
+  "left center right"
+  ".    bottom     .";
+  gap: 22px 26px;
+  align-items: start;
+  justify-items: center;
+  margin-top: 18px;
+}
+
+.piece--center { grid-area: center; }
+.piece--left { grid-area: left; }
+.piece--right { grid-area: right; }
+.piece--bottom { grid-area: bottom; }
+
+.piece{
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.piece--left {
+  max-width: 500px;
+  transform: scale(1.05) translateY(80px);
+}
+
+.piece--right {
+  max-width: 280px;
+}
+
+.piece--center{
+  max-width: 360px;
+  transform: scale(1.05);
+}
+
+.piece--bottom{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 320px;
+  transform: scale(1.08);
+}
+
+.piece-img{
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 16px 24px rgba(0,0,0,0.18));
+}
+
+.label-card{
+  margin: 12px auto 0;
+  padding: 12px 14px;
+  width: min(92%, 320px);
+
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(201,162,77,0.35);
+  border-radius: 12px;
+
+  box-shadow: 0 10px 18px rgba(0,0,0,0.07);
+  text-align: left;
+}
+
+.label-title{
+  font-weight: 800;
+  color: var(--red);
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.label-meta{
+  font-size: 12px;
+  color: var(--text);
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.label-desc{
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+@media (max-width: 780px){
+  .gallery-wall{
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "center"
+    "left"
+    "right"
+    "bottom";
+  }
+
+  .piece, .piece-center{
+    max-width: 420px;
+  }
+
+  .label-card{
+    width: min(100%, 420px);
+  }
+}
+
+/* =========================
+   EXHIBIT 2 - LITTLE MOMENTS WALL (Polaroid style)
+   ========================= */
+
+.moments-wall{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+/* hero spans wider */
+.moment--hero{
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px){
+  .moment--hero{
+    grid-column: 3 / 11; /* centered wide piece */
+  }
+}
+
+/* polaroid card */
+.moment{
+  grid-column: span 6;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(201,162,77,0.22);
+  border-radius: 14px;
+  padding: 12px 12px 16px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+  position: relative;
+  overflow: visible;
+  transition: transform 0.3s ease;
+  cursor: zoom-in; 
+}
+
+/* on wider screens: more tiles per row */
+@media (min-width: 1100px){
+  .moment{ grid-column: span 4; }
+}
+@media (min-width: 1100px){
+  .moment{ grid-column: span 6; }
+}
+
+.moment img{
+  width: 100%;
+  height: 260px;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* caption like a note */
+.moment figcaption{
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.photo{
+  position: relative;
+}
+
+/* Tape stuck ON photo */
+.photo::before{
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  backdrop-filter: blur(1px);
+
+  width: 110px;              /* bigger */
+  height: 32px;              /* thicker */
+
+  background: linear-gradient(
+    135deg,
+    rgba(235,170,190,0.85),
+    rgba(210,140,170,0.75)
+  );
+
+  border-radius: 8px;
+  box-shadow:
+    0 6px 12px rgba(0,0,0,0.25),
+    inset 0 2px 4px rgba(255,255,255,0.5);
+
+  z-index: 3;
+}
+
+.moment::before{
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-6deg);
+}
+
+.moment::after{
+  display: none;
+}
+
+/* subtle “casual wall” rotations */
+.moment:nth-child(2n){ transform: rotate(-0.6deg); }
+.moment:nth-child(3n){ transform: rotate(0.8deg); }
+.moment:nth-child(5n){ transform: rotate(-1deg); }
+.moment--hero{ transform: none; }
+
+.moment:hover{
+  transform: scale(1.03) rotate(0deg);
+}
+
+/* Lightbox */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.lightbox.is-open{ display: block; }
+
+.lightbox__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
+}
+
+.lightbox__content{
+  position: relative;
+  max-width: min(92vw, 920px);
+  max-height: 86vh;
+  margin: 6vh auto 0;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+}
+
+.lightbox__img{
+  width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  animation: popIn 0.25s ease-out;
+}
+
+.lightbox__caption{
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.90);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.lightbox__close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, background 0.2s ease;
+  border: none;
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+
+}
+
+.lightbox__close:hover{
+  transform: scale(1.08);
+  background: white;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* =========================
+   EXHIBIT 3 — LETTER ROOM
+   ========================= */
+
+.warning-card{
+  max-width: 760px;
+  margin: 0 auto 18px;
+}
+
+.warning-card .small-note{
+  opacity: 0.75;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* The “paper” */
+.letter-sheet{
+  max-width: 760px;
+  margin: 0 auto;
+  background: rgba(255,250,243,0.96);
+  border: 1px solid rgba(201,162,77,0.28);
+  border-radius: 12px;
+  padding: 40px 48px;
+  box-shadow: 0 22px 44px rgba(0,0,0,0.10);
+  position: relative;
+}
+
+/* subtle vignette/edge texture feel */
+.letter-sheet::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: 12px;
+  pointer-events:none;
+  background: radial-gradient(circle at 50% 20%,
+    rgba(255,255,255,0.7) 0%,
+    rgba(255,255,255,0.35) 40%,
+    rgba(0,0,0,0.05) 100%);
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
+.letter-title{
+  margin: 0 0 18px;
+  color: var(--red);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+}
+
+.letter-body{
+  position: relative;
+  z-index: 1;
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(60,50,44,0.95);
+}
+
+.letter-body p{
+  margin: 0 0 16px;
+}
+
+.letter-signature{
+  position: relative;
+  z-index: 1;
+  margin-top: 34px;
+  text-align: right;
+  font-size: 16px;
+}
+
+.sig-name{
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+@media (max-width: 780px){
+  .letter-sheet{
+    padding: 28px 22px;
+  }
+}
+
+/* Cute toast */
+.toast{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 99999;
+  background: rgba(0,0,0,0.35);
+}
+
+.toast.is-open { display: flex; }
+
+.toast-inner{
+  width: min(520px, 92vw);
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 14px 14px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#toastText{
+  font-size: 0.98rem;
+  line-height: 1.3;
+}
+
+
+
+/* =========================
+   HERO CARD (Gallery Header)
+   ========================= */
+
+.hero-card {
+  text-align: center;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(201,162,77,0.35);
+  border-left: 6px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.sub {
+  margin: 10px 0 0;
+  opacity: 0.85;
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.intro + .btn {
+  display: block;
+  width: fit-content;
+  margin: 18px auto 0;
+  margin-bottom: 32px;
+}
+
+.btn,
+button {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--red);
+
+  cursor: pointer;
+  font-weight: 600;
+
+  transition: transform 0.15s ease,
+              background 0.15s ease;
+}
+
+.btn:hover,
+button:hover {
+  background: var(--blush);
+  transform: translateY(-1px);
+}
+
+.container > .btn {
+    display: inline-block;
+    margin: 0 auto 32px;;
+}

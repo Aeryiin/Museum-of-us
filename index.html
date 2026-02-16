@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Museum of Us</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Shell-only styling (does NOT change your page designs) -->
+  <style>
+    /* Make the shell invisible */
+    body { margin: 0; padding: 0; background: transparent; animation: none; }
+    body::before { display: none; }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* prevents any shell gaps */
+    }
+
+    /* Fullscreen iframe, no gaps */
+    #museumFrame {
+        position: fixed;
+        inset: 0;          /* top:0; right:0; bottom:0; left:0 */
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        background: transparent;
+        z-index: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+    <!-- ✅ Use your real file name -->
+    <audio id="bgMusic" loop>
+        <source src="assets/valentine.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Your pages live inside here -->
+    <iframe
+        name="museumFrame"
+        id="museumFrame"
+        src="entrance.html"
+    ></iframe>
+
+    <script>
+        const music = document.getElementById("bgMusic");
+
+        window.startMuseumMusic = () => {
+            if (!music) return;
+
+            if (music.currentTime === 0) {
+                music.currentTime = 3;
+            }
+
+            music.volume = 0;
+            music.play().catch(() => {});
+
+            let volume = 0;
+            const fade = setInterval(() => {
+                if (volume < 0.12) {
+                volume += 0.02;
+                music.volume = volume;
+                } else {
+                clearInterval(fade);
+                }
+            }, 120);
+        };
+
+        window.setMuseumTrack = function (src) {
+        const music = document.getElementById("bgMusic");
+        if (!music) return;
+
+        // If same track, do nothing
+        if (music.getAttribute("data-current") === src) return;
+
+        music.setAttribute("data-current", src);
+
+        music.src = src;
+        music.load();
+
+        music.volume = 0.25;
+        music.play().catch(() => {});
+        };
+
+        window.setMuseumTrack = (src, autoplay = false) => {
+            if (!music) return;
+
+            const currentSrc = music.querySelector("source")?.getAttribute("src");
+
+            // only change if different song
+            if (currentSrc !== src) {
+                music.pause();
+                music.querySelector("source").setAttribute("src", src);
+                music.load();
+            }
+
+            if (autoplay) {
+                music.volume = 0.25;
+                music.play().catch(() => {});
+                toggle.textContent = "♫ Pause";
+            }
+            };
+
+    </script>
+</body>
+</html>

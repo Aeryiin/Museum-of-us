@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exhibit 02 — Little Moments</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="top-actions">
+        <a class="btn back-btn" href="index.html">← Back to Entrance</a>
+        <button class="btn" id="musicToggle">♫ Music</button>
+    </div>
+
+    <section class="placard">
+      <h1>Exhibit 02</h1>
+      <h2 class="exhibit-subtitle">Little Moments</h2>
+
+      <p class="sub" style="text-align:center;">
+        The quiet moments only we notice.
+      </p>
+    </section>
+
+    <section class="placard">
+      <h2>Artifacts on Display</h2>
+
+      <section class="moments-wall">
+         <figure class="moment moment--hero" data-caption="We look so cute here">
+          <div class="photo">
+          <img src="assets/Love.png" alt="Concert Night Selfie"/>
+          </div>
+          <figcaption>I love you always</figcaption>
+         </figure>
+
+          <figure class="moment" data-caption="First? data at NB Lounge I think hehe">
+            <div class="photo">
+            <img src="assets/CafeDate.png" alt="Cafe Date"/>
+            </div>
+            <figcaption>Cute date with you</figcaption>
+          </figure>
+
+          <figure class="moment" data-caption="I remember being so happy and showing it to everyone">
+            <div class="photo">
+            <img src="assets/Eyes.png" alt="Close-up Selfie"/>
+            </div>
+            <figcaption>Our pretty eyes</figcaption>
+          </figure>
+
+          <figure class="moment" data-caption="Resorts world date before going to Disney on Ice, one of my favorite pictures">
+            <div class="photo">
+            <img src="assets/UsSmiling.png" alt="Mall Selfie"/>
+            </div>
+            <figcaption>Sudden mall date</figcaption>
+          </figure>
+
+          <figure class="moment" data-caption="A small gesture that I will never forget, you made me feel so loved">
+            <div class="photo">
+            <img src="assets/Flower.png" alt="Flowers Selfie"/>
+            </div>
+            <figcaption>Flowers on a normal day</figcaption>
+          </figure>
+
+          <figure class="moment" data-caption="I absolutely love this picture, it's my homescreen">
+            <div class="photo">
+            <img src="assets/Kissy.png" alt="Cheek Kiss"/>
+            </div>
+            <figcaption>Cute cheek kiss</figcaption>
+          </figure>
+
+          <figure class="moment" data-caption="Absolute core memory, I can still how happy I was especially since I was with you">
+            <div class="photo">
+            <img src="assets/DisneyOnIce.png" alt="Disney On Ice"/>
+            </div>
+            <figcaption>With my prince</figcaption>
+          </figure>
+
+          <figure class="moment" data-caption="It was the second day we were officially together and I couldn't stop talking about you to our friends">
+            <div class="photo">
+            <img src="assets/Cuties.png" alt="Second day officially together"/>
+            </div>
+            <figcaption>Drinking and singing together</figcaption>
+          </figure>
+
+          <figure class="moment" data-caption="I enjoyed watching the pageant even though we left early HAHAHAHAHAH">
+            <div class="photo">
+            <img src="assets/Pageant.png"alt="Pageant"/>
+            </div>
+            <figcaption>School events together</figcaption>
+          </figure>
+
+          <figure class="moment" data-caption="I was very very very happy when we got Reef, our first baby">
+            <div class="photo">
+            <img src="assets/BabyReef.png"alt="Reef Birth"/>
+            </div>
+            <figcaption>When Reef was born</figcaption>
+          </figure>
+
+      </section>
+    </section>
+
+    <section class="placard">
+      <h2>Placard Notes</h2>
+
+      <p>
+        Moments that may look ordinary to the world
+        <br>
+        but mean the world to me.
+        <br>
+        This is where our love quietly lived.   
+      </p>
+    </section>
+
+    <div class="nav-buttons" style="display:flex; justify-content:space-between; gap:12px; margin-top:18px;">
+      <a class="btn" href="exhibit1.html">← Previous</a>
+      <a class="btn" href="exhibit3.html" id="finaleLink">Next Exhibit →</a>
+    </div>
+
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__backdrop" data-close></div>
+
+    <figure class="lightbox__content" role="dialog" aria-modal="true">
+      <button class="lightbox__close" type="button" aria-label="Close" data-close>✕</button>
+      <img class="lightbox__img" id="lightboxImg" alt="">
+      <figcaption class="lightbox__caption" id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

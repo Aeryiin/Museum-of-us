@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="top-actions">
+            <a class="btn back-btn" href="index.html">← Back to Entrance</a>
+            <button class="btn" id="musicToggle">♫ Music</button>
+        </div>
+
+        <section class="hero-card">
+            <h1>Main Gallery</h1>
+            <p class="sub">Select an exhibit to continue.</p>
+        </section>
+
+        <section class="info-card">
+            <p class="info-title">Visitor Information</p>
+
+            <div class="info-grid">
+                <span class="info-label">Hours:</span>
+                <span class="info-value">Always open for you</span>
+
+                <span class="info-label">Admission:</span>
+                <span class="info-value">One hug</span>
+
+                <span class="info-label">Curator:</span>
+                <span class="info-value">Your love ♡</span>
+            </div>
+        </section>
+
+        <!-- Exhibit 01 -->
+        <a href="exhibit1.html" class="exhibit-link">
+            <section class="exhibit-card">
+                <div class="exhibit-top">
+                    <span class="badge">01</span>
+                    <h2>Exhibit 01: How We Started</h2>
+                    <span class="chev">→</span>
+                </div>
+                <p>The beginning of everything.</p>
+            </section>
+        </a>
+
+        <!-- Exhibit 02 -->
+        <a href="exhibit2.html" class="exhibit-link">
+            <section class="exhibit-card">
+                <div class="exhibit-top">
+                    <span class="badge">02</span>
+                    <h2>Exhibit 02: Little Moments</h2>
+                    <span class="chev">→</span>
+                </div>
+                <p>The quiet moments only we notice.</p>
+            </section>
+        </a>
+
+        <!-- Exhibit 03 -->
+        <a href="exhibit3.html" class="exhibit-link" id="lockedExhibit3">
+            <section class="exhibit-card">
+                <div class="exhibit-top">
+                    <span class="badge">03</span>
+                    <h2>Exhibit 03: What I Feel</h2>
+                    <span class="chev">→</span>
+                </div>
+                <p>The heart of the museum.</p>
+            </section>
+        </a>
+
+    </div>
+
+    <!-- ✅ Toast popup (cute warning) -->
+    <div class="toast" id="toast" style="display:none;">
+    <div class="toast-inner">
+        <span id="toastText"></span>
+        <button class="btn" id="toastClose" type="button">OK</button>
+    </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
